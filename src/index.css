@@ -1,0 +1,130 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 25% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 25% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 196 82% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 196 82% 47%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.4rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-cyber-dark text-foreground bg-cyber-grid;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Skewed edges for cybersecurity visual style */
+  .skewed-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right bottom, transparent 49.5%, #1A1F2C 50%);
+    z-index: -1;
+  }
+  
+  .skewed-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right top, transparent 49.5%, #1A1F2C 50%);
+    z-index: -1;
+  }
+  
+  .cyber-text {
+    -webkit-text-stroke: 1px rgba(51, 195, 240, 0.2);
+    text-shadow: 0 0 15px rgba(51, 195, 240, 0.5);
+  }
+  
+  .cyber-border {
+    border: 1px solid rgba(51, 195, 240, 0.3);
+    box-shadow: 0 0 10px rgba(51, 195, 240, 0.1);
+  }
+  
+  /* TypeWriter Effect */
+  .typewriter {
+    position: relative;
+    overflow: hidden;
+    border-right: .15em solid #33C3F0;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: typewriter 4s steps(40) 1s forwards, blink 1s step-end infinite;
+  }
+  
+  /* Counter animation */
+  .count-up {
+    counter-reset: count 0;
+    animation: counter 2s forwards linear;
+  }
+  
+  .count-up::after {
+    content: counter(count);
+  }
+  
+  /* Animated gradient background */
+  .cyber-gradient {
+    background: linear-gradient(45deg, #151A24, #222840, #1A1F2C);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Shield hexagon shape */
+  .shield-hex {
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+}
